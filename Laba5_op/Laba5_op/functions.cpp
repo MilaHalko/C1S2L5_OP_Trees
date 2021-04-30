@@ -15,6 +15,8 @@ void readFile(string filename)
 		{
 			string temp;
 			getline(fin, temp);
+			cout << temp << endl;
+			system("pause");
 			// action
 		}
 	}
