@@ -1,6 +1,6 @@
 #include "R-tree.h"
 
-void readFile(string filename)
+void readFile(string filename, Tree Rtree)
 {
 	ifstream fin;
 	fin.open(fs::current_path().string() + "\\" + filename);
@@ -15,9 +15,7 @@ void readFile(string filename)
 		{
 			string temp;
 			getline(fin, temp);
-			cout << temp << endl;
-			system("pause");
-			// action
+			Rtree.insert(temp);
 		}
 	}
 	fin.close();

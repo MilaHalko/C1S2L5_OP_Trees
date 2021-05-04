@@ -1,6 +1,6 @@
 #pragma once
 #include "libraries.h"
-int MaxDots = 5;
+int MaxDots = 10;
 
 
 struct Dot
