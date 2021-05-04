@@ -38,6 +38,14 @@ void Tree::insert(string data) // на вход идет строка
 	ChooseLeaf(root, dot);
 }
 
+void Tree::print()
+{
+	for (int i = 0; i < MaxDots; i++)
+	{
+		cout << root->dots[i].data << endl;
+	}
+}
+
 
 void Tree::ChooseLeaf(Node* root, Dot dot)
 {
