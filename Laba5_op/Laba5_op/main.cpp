@@ -13,7 +13,10 @@ int main()
 	filename = "ukraine_poi.csv";
 	readFile(filename, tree);
 
-
+    float radius;
+    string type;
+    Dot dot;
+    Rtree.GetCoordinates(radius, type, dot);
 
 	system("pause");
 	return 0;

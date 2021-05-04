@@ -8,6 +8,9 @@ struct Dot
 	float latitude;
 	float longitude;
 	string data;
+    
+    float x;
+    float y;
 };
 
 class Node
@@ -51,14 +54,15 @@ public:
 	Tree();
 	~Tree();
 
+    void GetCoordinates(float&, string&, Dot);
 	void insert(string);
+    
 private:
 	Node* root;
 	int switcher;
 	
 	void ChooseLeaf(Node*, Dot);
 	void Split(Node*);
-    void GetCoordinates(float& radius, string& type, Dot);
 };
 
 Tree::Tree()
@@ -71,26 +75,28 @@ Tree::~Tree()
 {
 }
 
+
+void Tree::GetCoordinates(float& radius, string& type, Dot dot)
+{
+cout << "Write coordinates:" << endl << "Latitude is "; cin >> dot.latitude;
+cout << "." << endl;
+
+cout << "Longitude is "; cin >> dot.longitude;
+cout << "." << endl;
+
+cout << "Radius is "; cin >> radius;
+cout << "." << endl;
+
+cout << "Type is "; cin >> type;
+cout << "." << endl;
+}
+
+
 inline void Tree::insert(string data) // на вход идет строка
 {
 	Dot dot;
-    GetCoordinates();
+    //parsing
     ChooseLeaf(root, dot);
-}
-    
-void Tree::GetCoordinates(float& radius, string& type, Dot dot)
-{
-    cout << "Write coordinates:" << endl << "Latitude is "; cin >> dot.latitude;
-    cout << "." << endl;
-
-    cout << "Longitude is "; cin >> dot.longitude;
-    cout << "." << endl;
-    
-    cout << "Radius is "; cin >> radius;
-    cout << "." << endl;
-    
-    cout << "Type is "; cin >> type;
-    cout << "." << endl;
 }
 
     
