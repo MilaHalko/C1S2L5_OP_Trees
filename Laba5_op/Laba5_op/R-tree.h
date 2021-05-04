@@ -56,13 +56,13 @@ private:
 	Node* root;
 	int switcher;
 	
-	void ChooseLeaf();
+	void ChooseLeaf(Node*, Dot);
 	void Split(Node*);
 };
 
 Tree::Tree()
 {
-	root = nullptr;
+	root = new Node;
 	switcher = 0;
 }
 
@@ -70,41 +70,45 @@ Tree::~Tree()
 {
 }
 
-inline void Tree::insert(string data)
+inline void Tree::insert(string data) // на вход идет строка
 {
-	ChooseLeaf();
-	AdjustBounds();
-	// .. 
+	Dot dot;
+	// parsing
+	ChooseLeaf(root, dot);
 }
 
 inline void Tree::ChooseLeaf(Node* root, Dot dot)
 {
-	if (root->child_1 == nullptr && root->child_2 == nullptr)
+	if (root->child_1 == nullptr && root->child_2 == nullptr) // если нет детей
 	{
-		if (root->dots.size() <= MaxDots + 1)
+		root->AdjustBounds(dot); // расширить прямоугольник
+		if (root->dots.size() < MaxDots) // если не переполнен
 		{
-			root->dots.push_back(dot);
+			root->dots.push_back(dot); // добавляем точку
 		}
 		else
 		{
-			Split(root);
+			Split(root); // разделяем 
+			ChooseLeaf(root, dot); // проверяем снова
 		}
 	}
 	else
 	{
-
+		root->AdjustBounds(dot); // расширить прямоугольник
+		if (switcher == 0) ChooseLeaf(root->child_1, dot); // переход к ребенку
+		else ChooseLeaf(root->child_2, dot);
 	}
 }
 
 inline void Tree::Split(Node* root)
 {
-	switcher = (switcher + 1) % 2;
+	switcher = (switcher + 1) % 2; // чтобы делилось по горизонтали и вертикали 
 	root->child_1 = new Node;
 	root->child_2 = new Node;
 
 	if (switcher == 0)
 	{
-		float half = (root->top - root->bottom) / 2;
+		float half = (root->top - root->bottom) / 2; // половина высоты
 
 		for (size_t i = 0; i < MaxDots; i++)
 		{
@@ -117,11 +121,11 @@ inline void Tree::Split(Node* root)
 	}
 	else
 	{
-		float half = (root->right - root->left) / 2;
+		float half = (root->right - root->left) / 2; // половина ширины
 
 		for (size_t i = 0; i < MaxDots; i++)
 		{
-			if (root->dots[i].latitude >= half)
+			if (root->dots[i].longitude >= half)
 			{
 				root->child_1->AdjustBounds(root->dots[i]);
 				root->child_1->dots.push_back(root->dots[i]);
@@ -129,10 +133,4 @@ inline void Tree::Split(Node* root)
 		}
 	}
 }
-
-inline int is_better(Node* child_1, Node* child_2, Dot dot)
-{
-
-}
-
 
