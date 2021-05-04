@@ -9,7 +9,7 @@ struct Dot
 	float longitude;
 	string data;
     
-    float x;
+    float x = ;
     float y;
 };
 
@@ -95,7 +95,15 @@ cout << "." << endl;
 inline void Tree::insert(string data) // на вход идет строка
 {
 	Dot dot;
-    //parsing
+    
+    dot.latitude = data.substr(0, data.find(";"));
+    data.erase(0, data.find(";") + 1);
+    
+    dot.longitude = data.substr(0, data.find(";"));
+    data.erase(0, data.find(";") + 1);
+    
+    dot.data = data;
+    
     ChooseLeaf(root, dot);
 }
 
