@@ -1,9 +1,9 @@
-#include "R-tree.h"
+#include "Tree.h"
 
 int main()
 {
 	// utf-8
-	SetConsoleCP(65001); 
+	SetConsoleCP(65001);
 	SetConsoleOutputCP(65001);
 
 	Tree Rtree;
@@ -13,10 +13,10 @@ int main()
 	filename = "ukraine_poi.csv";
 	readFile(filename, Rtree);
 
-    float radius;
-    string type;
-    Dot dot;
-    Rtree.GetCoordinates(radius, type, dot);
+	float radius;
+	string type;
+	Dot dot;
+	Rtree.GetCoordinates(radius, type, dot);
 
 	system("pause");
 	return 0;

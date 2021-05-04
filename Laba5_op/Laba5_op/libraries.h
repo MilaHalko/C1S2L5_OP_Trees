@@ -9,6 +9,12 @@
 using namespace std;
 namespace fs = std::filesystem;
 
+struct Dot
+{
+	float latitude;
+	float longitude;
+	string data;
 
-
-
+	float x;
+	float y;
+};
