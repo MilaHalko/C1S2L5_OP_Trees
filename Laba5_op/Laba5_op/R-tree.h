@@ -58,6 +58,7 @@ private:
 	
 	void ChooseLeaf(Node*, Dot);
 	void Split(Node*);
+    void GetCoordinates(float& radius, string& type, Dot);
 };
 
 Tree::Tree()
@@ -73,10 +74,26 @@ Tree::~Tree()
 inline void Tree::insert(string data) // на вход идет строка
 {
 	Dot dot;
-	// parsing
-	ChooseLeaf(root, dot);
+    GetCoordinates();
+    ChooseLeaf(root, dot);
+}
+    
+void Tree::GetCoordinates(float& radius, string& type, Dot dot)
+{
+    cout << "Write coordinates:" << endl << "Latitude is "; cin >> dot.latitude;
+    cout << "." << endl;
+
+    cout << "Longitude is "; cin >> dot.longitude;
+    cout << "." << endl;
+    
+    cout << "Radius is "; cin >> radius;
+    cout << "." << endl;
+    
+    cout << "Type is "; cin >> type;
+    cout << "." << endl;
 }
 
+    
 inline void Tree::ChooseLeaf(Node* root, Dot dot)
 {
 	if (root->child_1 == nullptr && root->child_2 == nullptr) // если нет детей
