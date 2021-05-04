@@ -42,19 +42,4 @@ void GetCoordinates(float& latitude, float& longitude, float& radius, string& ty
 }
 
 
-void FindLocatios(Dot location, float radius, vector <Dot> &locations)
-{
-    CheckingLocation(tree.getRoot(), location, radius, locations);
-}
 
-
-void CheckingLocation(Node *node, Dot location, float radius, vector <Dot> &locations)
-{
-    if (( location.type == node->left.type)  &&  (pow(location.getX() - node->left.getX(), 2)  +  (pow(location.getY() - node->left.getY(), 2)  <=  pow(radius, 2))){
-        CheckingLocation(node->left, location, radius, locations);
-    }
-
-    if ((location.type == node->right.type) && (pow(location.getX() - node->rigth.getX(), 2) + (pow(location.getY() - node->right.getY(), 2) <= pow(radius, 2))){
-        CheckingLocation(node->right, location, radius, locations);
-    }
-}

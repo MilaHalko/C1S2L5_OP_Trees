@@ -10,9 +10,8 @@ struct Dot
 	string data;
 };
 
-class Node
+struct Node
 {
-public:
 	Node();
 	Node* child_1;
 	Node* child_2;
@@ -47,17 +46,20 @@ inline void Node::AdjustBounds(Dot dot)
 
 class Tree
 {
+    Node* root;
+    int switcher;
+    
+    void ChooseLeaf();
+    void Split(Node*);
+    void CheckingLocation(Node*, Dot, float, vector <Dot>&);
+    
 public:
 	Tree();
 	~Tree();
-
+    
+    Node* getRoot() {return root;}
 	void insert(string);
-private:
-	Node* root;
-	int switcher;
-	
-	void ChooseLeaf();
-	void Split(Node*);
+    void FindLocatios (Dot, float, vector <Dot>&);
 };
 
 Tree::Tree()
@@ -108,3 +110,19 @@ inline int is_better(Node* child_1, Node* child_2, Dot dot)
 }
 
 
+void Tree::FindLocatios(Dot location, float radius, vector <Dot> &locations)
+{
+    CheckingLocation(root, location, radius, locations);
+}
+
+
+void Tree::CheckingLocation(Node *node, Dot location, float radius, vector <Dot> &locations)
+{
+    if (pow(location.getX() - node->left.getX(), 2)  +  (pow(location.getY() - node->left.getY(), 2)  <=  pow(radius, 2))) {
+        CheckingLocation(node->left, location, radius, locations);
+    }
+
+    if ((location.type == node->right.type) && (pow(location.getX() - node->rigth.getX(), 2) + (pow(location.getY() - node->right.getY(), 2) <= pow(radius, 2))){
+        CheckingLocation(node->right, location, radius, locations);
+    }
+}
