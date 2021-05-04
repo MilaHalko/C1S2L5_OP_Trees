@@ -1,6 +1,5 @@
 #pragma once
 #include "libraries.h"
-int MaxDots = 10;
 
 
 struct Dot
@@ -63,6 +62,7 @@ private:
 	
 	void ChooseLeaf(Node*, Dot);
 	void Split(Node*);
+
 };
 
 Tree::Tree()
