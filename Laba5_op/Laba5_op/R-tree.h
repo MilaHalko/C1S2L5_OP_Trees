@@ -9,7 +9,7 @@ struct Dot
 	float longitude;
 	string data;
     
-    float x = ;
+    float x;
     float y;
 };
 
@@ -165,3 +165,4 @@ inline void Tree::Split(Node* root)
 	}
 }
 
+void readFile(string, Tree);
