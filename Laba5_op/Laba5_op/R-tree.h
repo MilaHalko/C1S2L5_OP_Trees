@@ -70,7 +70,7 @@ Tree::~Tree()
 {
 }
 
-inline void Tree::insert(string data) // на вход идет строка
+inline void Tree::insert(string data) // РЅР° РІС…РѕРґ РёРґРµС‚ СЃС‚СЂРѕРєР°
 {
 	Dot dot;
 	// parsing
@@ -79,36 +79,36 @@ inline void Tree::insert(string data) // на вход идет строка
 
 inline void Tree::ChooseLeaf(Node* root, Dot dot)
 {
-	if (root->child_1 == nullptr && root->child_2 == nullptr) // если нет детей
+	if (root->child_1 == nullptr && root->child_2 == nullptr) // РµСЃР»Рё РЅРµС‚ РґРµС‚РµР№
 	{
-		root->AdjustBounds(dot); // расширить прямоугольник
-		if (root->dots.size() < MaxDots) // если не переполнен
+		root->AdjustBounds(dot); // СЂР°СЃС€РёСЂРёС‚СЊ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
+		if (root->dots.size() < MaxDots) // РµСЃР»Рё РЅРµ РїРµСЂРµРїРѕР»РЅРµРЅ
 		{
-			root->dots.push_back(dot); // добавляем точку
+			root->dots.push_back(dot); // РґРѕР±Р°РІР»СЏРµРј С‚РѕС‡РєСѓ
 		}
 		else
 		{
-			Split(root); // разделяем 
-			ChooseLeaf(root, dot); // проверяем снова
+			Split(root); // СЂР°Р·РґРµР»СЏРµРј 
+			ChooseLeaf(root, dot); // РїСЂРѕРІРµСЂСЏРµРј СЃРЅРѕРІР°
 		}
 	}
 	else
 	{
-		root->AdjustBounds(dot); // расширить прямоугольник
-		if (switcher == 0) ChooseLeaf(root->child_1, dot); // переход к ребенку
+		root->AdjustBounds(dot); // СЂР°СЃС€РёСЂРёС‚СЊ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
+		if (switcher == 0) ChooseLeaf(root->child_1, dot); // РїРµСЂРµС…РѕРґ Рє СЂРµР±РµРЅРєСѓ
 		else ChooseLeaf(root->child_2, dot);
 	}
 }
 
 inline void Tree::Split(Node* root)
 {
-	switcher = (switcher + 1) % 2; // чтобы делилось по горизонтали и вертикали 
+	switcher = (switcher + 1) % 2; // С‡С‚РѕР±С‹ РґРµР»РёР»РѕСЃСЊ РїРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»Рё Рё РІРµСЂС‚РёРєР°Р»Рё 
 	root->child_1 = new Node;
 	root->child_2 = new Node;
 
 	if (switcher == 0)
 	{
-		float half = (root->top - root->bottom) / 2; // половина высоты
+		float half = (root->top - root->bottom) / 2; // РїРѕР»РѕРІРёРЅР° РІС‹СЃРѕС‚С‹
 
 		for (size_t i = 0; i < MaxDots; i++)
 		{
@@ -121,7 +121,7 @@ inline void Tree::Split(Node* root)
 	}
 	else
 	{
-		float half = (root->right - root->left) / 2; // половина ширины
+		float half = (root->right - root->left) / 2; // РїРѕР»РѕРІРёРЅР° С€РёСЂРёРЅС‹
 
 		for (size_t i = 0; i < MaxDots; i++)
 		{
