@@ -96,10 +96,38 @@ inline void Tree::ChooseLeaf(Node* root, Dot dot)
 	}
 }
 
-inline void Tree::Split(Node*)
+inline void Tree::Split(Node* root)
 {
 	switcher = (switcher + 1) % 2;
+	root->child_1 = new Node;
+	root->child_2 = new Node;
 
+	if (switcher == 0)
+	{
+		float half = (root->top - root->bottom) / 2;
+
+		for (size_t i = 0; i < MaxDots; i++)
+		{
+			if (root->dots[i].latitude >= half)
+			{
+				root->child_1->AdjustBounds(root->dots[i]);
+				root->child_1->dots.push_back(root->dots[i]);
+			}
+		}
+	}
+	else
+	{
+		float half = (root->right - root->left) / 2;
+
+		for (size_t i = 0; i < MaxDots; i++)
+		{
+			if (root->dots[i].latitude >= half)
+			{
+				root->child_1->AdjustBounds(root->dots[i]);
+				root->child_1->dots.push_back(root->dots[i]);
+			}
+		}
+	}
 }
 
 inline int is_better(Node* child_1, Node* child_2, Dot dot)
