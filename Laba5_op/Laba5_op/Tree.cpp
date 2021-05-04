@@ -96,6 +96,21 @@ void Tree::Split(Node* root)
 	}
 }
 
+
+void Tree::output(vector<Dot> &dots, string type)
+{
+    cout << "We found next entities in the sector: " << endl;
+    int counter = 1;
+    
+    for (int i = 0; i < dots.size(); i++) {
+        if (dots[i].data.find(type)) {
+            cout << counter << ". " << dots[i].latitude << ";" << dots[i].longitude << ";" << dots[i].data << endl;
+            counter++;
+        }
+    }
+}
+
+
 void readFile(string filename, Tree Rtree)
 {
 	ifstream fin;
@@ -116,3 +131,5 @@ void readFile(string filename, Tree Rtree)
 	}
 	fin.close();
 }
+
+

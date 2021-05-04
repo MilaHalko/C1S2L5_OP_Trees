@@ -17,7 +17,10 @@ int main()
 	string type;
 	Dot dot;
 	Rtree.GetCoordinates(radius, type, dot);
-
+    
+    vector<Dot> dots;
+    Rtree.output(dots, type);
+    
 	system("pause");
 	return 0;
 }
