@@ -96,10 +96,10 @@ inline void Tree::insert(string data) // на вход идет строка
 {
 	Dot dot;
     
-    dot.latitude = data.substr(0, data.find(";"));
+    dot.latitude = stof(data.substr(0, data.find(";")));
     data.erase(0, data.find(";") + 1);
     
-    dot.longitude = data.substr(0, data.find(";"));
+    dot.longitude = stof(data.substr(0, data.find(";")));
     data.erase(0, data.find(";") + 1);
     
     dot.data = data;

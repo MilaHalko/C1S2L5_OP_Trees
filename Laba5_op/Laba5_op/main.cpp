@@ -11,7 +11,7 @@ int main()
 	cout << "Enter the name of the file: ";
 	getline(cin, filename);
 	filename = "ukraine_poi.csv";
-	readFile(filename, tree);
+	readFile(filename, Rtree);
 
     float radius;
     string type;
