@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21A41BCA2641E8E60050FFA9 /* R-tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A41BC52641E8E50050FFA9 /* R-tree.cpp */; };
-		21A41BCB2641E8E60050FFA9 /* functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A41BC72641E8E60050FFA9 /* functions.cpp */; };
 		21A41BCC2641E8E60050FFA9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A41BC82641E8E60050FFA9 /* main.cpp */; };
+		21A41BEB264206710050FFA9 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A41BE5264206710050FFA9 /* Node.cpp */; };
+		21A41BED264206710050FFA9 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A41BEA264206710050FFA9 /* Tree.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,11 +26,12 @@
 
 /* Begin PBXFileReference section */
 		21A41BBA2641E8BB0050FFA9 /* Laba5_op */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Laba5_op; sourceTree = BUILT_PRODUCTS_DIR; };
-		21A41BC52641E8E50050FFA9 /* R-tree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "R-tree.cpp"; sourceTree = "<group>"; };
 		21A41BC62641E8E50050FFA9 /* libraries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libraries.h; sourceTree = "<group>"; };
-		21A41BC72641E8E60050FFA9 /* functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = functions.cpp; sourceTree = "<group>"; };
 		21A41BC82641E8E60050FFA9 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		21A41BC92641E8E60050FFA9 /* R-tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "R-tree.h"; sourceTree = "<group>"; };
+		21A41BE5264206710050FFA9 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		21A41BE7264206710050FFA9 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		21A41BE8264206710050FFA9 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tree.h; sourceTree = "<group>"; };
+		21A41BEA264206710050FFA9 /* Tree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tree.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +64,12 @@
 		21A41BBC2641E8BB0050FFA9 /* Laba5_op */ = {
 			isa = PBXGroup;
 			children = (
-				21A41BC72641E8E60050FFA9 /* functions.cpp */,
 				21A41BC62641E8E50050FFA9 /* libraries.h */,
 				21A41BC82641E8E60050FFA9 /* main.cpp */,
-				21A41BC92641E8E60050FFA9 /* R-tree.h */,
-				21A41BC52641E8E50050FFA9 /* R-tree.cpp */,
+				21A41BE5264206710050FFA9 /* Node.cpp */,
+				21A41BE7264206710050FFA9 /* Node.h */,
+				21A41BEA264206710050FFA9 /* Tree.cpp */,
+				21A41BE8264206710050FFA9 /* Tree.h */,
 			);
 			path = Laba5_op;
 			sourceTree = "<group>";
@@ -128,9 +130,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21A41BCA2641E8E60050FFA9 /* R-tree.cpp in Sources */,
-				21A41BCB2641E8E60050FFA9 /* functions.cpp in Sources */,
 				21A41BCC2641E8E60050FFA9 /* main.cpp in Sources */,
+				21A41BED264206710050FFA9 /* Tree.cpp in Sources */,
+				21A41BEB264206710050FFA9 /* Node.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

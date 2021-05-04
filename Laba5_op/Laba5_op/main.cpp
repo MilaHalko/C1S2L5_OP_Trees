@@ -19,6 +19,9 @@ int main()
 	Rtree.GetCoordinates(radius, type, dot);
 
 	Rtree.print();
+    vector<Dot> dots;
+    Rtree.output(dots, type);
+    
 
 	system("pause");
 	return 0;

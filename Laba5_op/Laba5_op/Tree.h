@@ -8,6 +8,7 @@ public:
 	Tree();
 	void GetCoordinates(float&, string&, Dot);
 	void insert(string);
+    void output(vector<Dot>&, string);
 	void print();
 
 private:
