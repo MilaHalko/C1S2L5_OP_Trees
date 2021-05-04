@@ -12,8 +12,8 @@ using namespace std;
 
 void readFile(string);
 void GetCoordinates(float&, float&, float&, string&, Dot&);
-void FindLocatios(Earth, float, vector <Earth>);
-void CheckTheDistance(Node*, Earth, float, vector <Earth>);
+void FindLocatios(Dot, float, vector <Dot>&);
+void CheckTheDistance(Node*, Earth, float, vector <Dot>&);
 
 
 
