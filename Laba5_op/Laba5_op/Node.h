@@ -1,20 +1,16 @@
 #pragma once
-#include "libraries.h"
+#include "Rectangle.h"
+#include <vector>
 
-class Node
-{
-public:
-	Node();
-	Node* child_1;
-	Node* child_2;
-
-	void AdjustBounds(Dot);
-	float left;
-	float top;
-	float right;
-	float bottom;
-
-	vector<Dot> dots;
+struct Node {
+    Rectangle rect;
+    PointOnMap point;
+    vector<Node*> children;
+    Node() 
+    {
+        rect.leftDown = { 0, 0 };
+        rect.rightUp = { 0, 0 };
+        point.x = -1e9;
+        point.y = -1e9;
+    }
 };
-
-
