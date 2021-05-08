@@ -73,15 +73,19 @@ void RTree::findPointsInRect(Node* node, Rectangle rect, string type, string sub
 void RTree::findPointsInCircle(Node* node, PointOnMap center, float R, string type, string subtype, vector<PointOnMap>& result)
 {
     if (node->children.size() > 0) {
-        if (check_circle_rectangle(center, R, node->rect)) {
-            for (int i = 0; i < node->children.size(); i++) {
+        if (check_circle_rectangle(center, R, node->rect)) 
+        {
+            for (int i = 0; i < node->children.size(); i++) 
+            {
                 findPointsInCircle(node->children[i], center, R, type, subtype, result);
             }
         }
     }
     else
-        if (node->point.x != -1e9 && node->point.y != -1e9) {
-            if (check_circle_point(center, R, node->point) && node->point.type == type && node->point.subtype == subtype) {
+        if (node->point.x != -1e9 && node->point.y != -1e9) 
+        {
+            if (check_circle_point(center, R, node->point) && node->point.type == type && node->point.subtype == subtype)
+            {
                 result.push_back(node->point);
             }
         }
